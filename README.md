@@ -20,10 +20,10 @@
 |`release_date_global_sort`|`asc`升序<br>`desc`降序|×|按国际服发布日期排序|
 |`release_date_cn_sort`|`asc`升序<br>`desc`降序|×|按国服发布日期排序|
 |↑↑↑|
-|`battlefield_position`|`STRIKER`前排<br>`SPECIAL`后排|×|按部队类型筛选
+|`battlefield_position`|`STRIKER`前排<br>`SPECIAL`后排|×|按部队类型筛选|
 |`attack_attribute`|`Explosive`爆炸<br>`Piercing`贯穿<br>`Mystic`神秘<br>`Vibration`震动|×|按攻击类型筛选|
 |`type`|`Tank`坦克<br>`Dealer`输出<br>`Healer`治疗<br>`Support`辅助<br>`T.S.`载具支援|×|按职能定位筛选|
-|`school`|int|×|筛选指定学校的学生，参数值为学校ID
+|`school`|int|×|筛选指定学校的学生，参数值为学校ID|
 |`is_npc`|bool|×|筛选是否为NPC的角色|
 |`is_install`|bool|×|筛选日服是否实装的角色|
 |`is_install_global`|bool|×|筛选国际服是否实装的角色|
@@ -33,12 +33,12 @@
 |`special_apperance`|bool|×|筛选是否特殊装扮的角色(?)|
 |`rarity`|int(1~3)|×|筛选不同稀有度的学生|
 |`limited`|bool|×|筛选是否来自限定池的学生|
-|`defensive_attributes`|`Light`轻装甲<br>`Heavy`重装甲<br>`Special`特殊装甲<br>`Elastic`弹性装甲|×|按防御属性筛选
+|`defensive_attributes`|`Light`轻装甲<br>`Heavy`重装甲<br>`Special`特殊装甲<br>`Elastic`弹性装甲|×|按防御属性筛选|
 |`team_position`|`FRONT`前排<br>`MIDDLE`中排<br>`BACK`后排|×|按站位筛选|
 |`weapon_type`|`SG`霰弹枪<br>`SMG`冲锋枪<br>`AR`突击步枪<br>`GL`榴弹发射器<br>`HG`手枪<br>`RL`导弹发射器<br>`SR`狙击枪<br>`RG`轨道炮<br>`MG`重机枪<br>`MT`迫击炮<br>`FT`喷火器|×|按武器类型筛选|
 |`eqipment`|`2`护符<br>`3`手表<br>`4`项链<br>`5`徽章<br>`6`发夹<br>`7`帽子<br>`8`手套<br>`9`鞋子<br>`10`背包|×|按装备类型筛选|
 |`birthday`|int-int(MM-DD)|×|按生日筛选|
-|`body_shape`|`Shape`娇小<br>`Medium`普通<br>`Large`高挑|×|按身材筛选
+|`body_shape`|`Shape`娇小<br>`Medium`普通<br>`Large`高挑|×|按身材筛选|
 |`designer`|`7peach` `9ml` `CHILD` `Crab D` `DoReMi`<br>`dydldidl` `Doremsan2j` `Empew` `eno` `Fame`<br>`GULIM` `Hwansang` `kokosando` `koo3473` `mery`<br>`MISOM150` `mona` `Mx2J` `NAMYO` `nemoga`<br>`ni02` `nino` `OSUK2` `Owa` `Paruru`<br>`RONOPU` `seicoh` `tokki` `tonito` `Vinoker`<br>`whoisshe` `YutokaMizu` `あやみ` `イコモチ` `カンザリン`<br>`キキ` `にぎりうさぎ` `ヌードル` `はねこと` `ビョルチ`<br>`ぶくろて` `ポップキュン` `まきあっと` `ミミトケ` `ミモザ`<br>`やまかわ` `春夏冬ゆう` `二色こぺ` `桧野ひなこ`<br>`日下雲` `三脚たこ`|×|按角色设计师筛选|
 |`illustrator`|`7peach` `9ml` `CHILD` `Crab D` `DoReMi`<br>`dydldidl` `Doremsan2j` `Empew` `eno` `Fame`<br>`GULIM` `Hwansang` `kokosando` `koo3473` `mery`<br>`MISOM150` `mona` `Mx2J` `NAMYO` `nemoga`<br>`ni02` `nino` `OSUK2` `Owa` `Paruru`<br>`RONOPU` `seicoh` `tokki` `tonito` `Vinoker`<br>`whoisshe` `YutokaMizu` `あやみ` `イコモチ` `カンザリン`<br>`キキ` `にぎりうさぎ` `ヌードル` `はねこと` `ビョルチ`<br>`ぶくろて` `ポップキュン` `まきあっと` `ミミトケ` `ミモザ`<br>`やまかわ` `春夏冬ゆう` `二色こぺ` `桧野ひなこ`<br>`日下雲` `三脚たこ`|×|按角色原画师筛选|
 |`outdoor_adaptability`|`D` `C` `B` `A` `S` `SS`|×|按角色野外适应性筛选|
@@ -93,12 +93,14 @@
 |---|---|---|---|
 |`page`|int|√|当前请求的页数(从1开始)|
 |`page_size`|int|√|当前页数显示物品的数量|
+|`name`|String|×|物品名称模糊搜索|
 |`type`|`gift`礼物<br>`furniture`家具|×|筛选礼物或家具|
 |`is_bind_article`|bool|×|是否筛选词条|
 |`id_sort`|`asc`升序<br>`desc`降序|×|按新旧排序|
 
 
 *礼物，家具，词条都是分类，`type`和`is_bind_article`这俩应该可以同时使用*
+*当前物品列表即使使用很大的`page_size`也可能返回多页，需要查看返回值中的`max_page`判断是否完整*
 
 ---
 
@@ -116,7 +118,7 @@
 |---|---|---|---|
 |`page`|int|√|当前请求的页数(从1开始)|
 |`page_size`|int|√|当前页数显示文章的数量|
-|`summary_size`|int|√|内容摘要的长度
+|`summary_size`|int|√|内容摘要的长度|
 |`title`|String|×|模糊搜索文章标题|
 
 ---
@@ -134,7 +136,7 @@
 |---|---|---|---|
 |`page`|int|√|当前请求的页数(从1开始)|
 |`page_size`|int|√|当前页数显示漫画的数量|
-|`title`|String|×|模糊搜索文章标题|
+|`title`|String|×|模糊搜索漫画标题|
 
 ---
 
@@ -178,7 +180,7 @@
 |查询参数|参数值/参数类型|必填|描述|
 |---|---|---|---|
 |`page`|int|√|当前请求的页数(从1开始)|
-|`page_size`|int|√|当前页数显示图集的数量|
+|`page_size`|int|√|当前页数显示音乐的数量|
 |`s`|String|×|模糊搜索音乐标题|
 |`id_sort`|`asc`升序<br>`desc`降序|×|按新旧排序|
 
@@ -198,11 +200,13 @@
 |---|---|---|---|
 |`page`|int|√|当前请求的页数(从1开始)|
 |`page_size`|int|√|当前页数显示事件的数量|
-|`type`|`MainStory`主线故事<br>`OtherStory`其他剧情<br>`Event`活动<br>`Gacha`卡池<br>`Double`掉落加倍<br>`MiniBattle`小型战役<br>`Raid`总力战<br>`BigRaid`大决战<br>`AlliedOperation`联合作战<br>`ContentImprovements`内容改进<br>`Maintenance`维护<br>`Live`直播<br>`WebEvent`网页活动<br>`OutsideGame`游戏外<br>`Other`其他|×|按类型筛选(可多个)|
-|`start_time_start`|int|×|筛选事件开始事件(时间戳)|
+|`type`|`MainStory`主线故事<br>`OtherStory`其他剧情<br>`Event`活动<br>`Gacha`卡池<br>`Double`掉落加倍<br>`MiniBattle`小型战役<br>`Raid`总力战<br>`BigRaid`大决战<br>`AlliedOperation`联合作战<br>`ContentImprovements`内容改进<br>`Maintenance`维护<br>`Live`直播<br>`WebEvent`网页活动<br>`OutsideGames`游戏外<br>`Trivia`杂项<br>`Other`其他|×|按类型筛选|
+|`start_time_start`|int|×|筛选事件开始时间(时间戳)|
 |`start_time_end`|int|×|筛选事件结束时间(时间戳)|
 |`start_time_sort`|`asc`升序<br>`desc`降序|×|是否按事件排序|
 |`title`|String|×|模糊搜索事件标题|
+
+*时间轴数据较多，`page_size`传很大也可能只返回部分结果，需要查看返回值中的`max_page`并继续分页*
 
 ---
 
@@ -211,13 +215,33 @@
 
 ---
 
-### 20.获取配对方案列表
-以后再写
+### 20.获取配队方案列表
+### GET
+#### 基础URL
+`https://api.kivo.wiki/api/v1/walkthroughs`
+
+|查询参数|参数值/参数类型|必填|描述|
+|---|---|---|---|
+|`page`|int|√|当前请求的页数(从1开始)|
+|`page_size`|int|√|当前页数显示配队方案的数量|
+|`summary_size`|int|√|配队说明摘要的长度|
+|`title`|String|×|模糊搜索配队方案标题|
+|`id_sort`|`asc`升序<br>`desc`降序|×|按新旧排序|
+|`server`|`Japan`日服<br>`China`国服<br>`Global`国际服|×|按适用服务器筛选|
+|`game_mode`|`Universal`通用<br>`Raid`总力战<br>`GrandAssault`大决战<br>`Event`活动<br>`PVP`PVP<br>`JointFirepowerExercise`合同火力演习<br>`BountyHunts`悬赏通缉<br>`Commissions`特别委托<br>`Missions`主线关卡<br>`SchoolExchange`学院交流会<br>`MultiFloorRaid`制约解除决战<br>`Other`其他|×|按使用场合筛选|
+|`enemy_defensive_attributes`|`Light`轻装甲<br>`Heavy`重装甲<br>`Special`特殊装甲<br>`Elastic`弹性装甲<br>`CompositeArmor`复合装甲<br>`Rainbow`多种属性|×|按敌方防御属性筛选|
+|`level_terrain`|`Outdoor`野外战<br>`Indoor`室内战<br>`Street`街区战<br>`Other`多种地形|×|按地形筛选|
+|`time_start`|int|×|筛选最后更新时间不早于该时间戳的配队方案|
+|`time_end`|int|×|筛选最后更新时间不晚于该时间戳的配队方案|
+|`favorite`|bool|×|是否筛选已收藏配队方案，`true`需要登录态|
+|`my_uploaded`|bool|×|是否筛选自己上传的配队方案，`true`需要登录态|
+
+*`favorite=true`和`my_uploaded=true`需要登录态，未登录或未鉴权时会返回401*
 
 ---
 
-### 21.获取详细配对信息
-以后再写
+### 21.获取详细配队信息
+`https://api.kivo.wiki/api/v1/walkthroughs/[配队方案ID]`
 
 ---
 
