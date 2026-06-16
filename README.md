@@ -10,7 +10,7 @@
 |----|----|---|---|
 |`page`|int|×|当前请求的页数(默认从1开始)|
 |`page_size`|int|×|当前页数显示角色的数量，默认10|
-|`character_data_search`|string|×|学生姓名模糊搜索|
+|`name`|string|×|学生姓名模糊搜索|
 |↓↓↓
 |`name_sort`|`asc`升序<br>`desc`降序|×|按姓名排序|
 |`id_sort`|`asc`升序<br>`desc`降序|×|按上传顺序排序|
